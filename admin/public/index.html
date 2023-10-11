@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- 富文本编辑器中粘贴的图片报403是防止盗链的错误（这种设计，是api厂商正常保证自己的服务器不被刷流量） 加上以下字段即可-->
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if(htmlWebpackPlugin.options.useCdn==true) { %>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/wangEditor/10.0.13/wangEditor.css"
+    />
+
+    <% } %>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <% if(htmlWebpackPlugin.options.useCdn==true) { %>
+    <script src="https://cdn.staticfile.org/vue/2.6.12/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-router/3.4.9/vue-router.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.21.0/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.3.1/index.full.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/locale/af.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-plus-icons-vue/2.1.0/global.iife.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/wangEditor/10.0.13/wangEditor.js "></script>
+    <% } %>
+  </body>
+</html>
